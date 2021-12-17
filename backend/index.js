@@ -4,7 +4,10 @@ var app = express();
 var mysql = require('mysql');
 var cors = require('cors');
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit: "50mb"}));
+
+var picturesDirectory = "figures/";
+var fs = require('fs');
 
 const port = 9000;
 
@@ -20,7 +23,7 @@ app.get('/products/:product_id', function(req, res){
   });
   connection.connect();
   var myQuery = " SELECT product_id, product_name, product_trademark, product_price, " +
-                " product_type, product_stock, created_date, modified_date " +
+                " product_type, product_stock, product_image, created_date, modified_date " +
                 " FROM products " +
                 " WHERE product_id = ? ";
   var myValues = [req.params.product_id];
@@ -44,7 +47,7 @@ app.get('/products', function(req, res){
   });
   connection.connect();
   var myQuery = " SELECT product_id, product_name, product_trademark, product_price, " +
-                " product_type, product_stock, user_id, created_date, modified_date " +
+                " product_type, product_stock, user_id, product_image, created_date, modified_date " +
                 " FROM products " +
                 " WHERE 1 = 1 ";
   var myValues = [];
@@ -116,10 +119,10 @@ app.post('/products', function(req, res){
   });
   connection.connect();
   var myQuery = " INSERT INTO products (product_name, product_trademark, product_price, " +
-                " product_type, product_stock, user_id, created_date, modified_date) " +
-                " VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW()); ";
+                " product_type, product_stock, user_id, product_image, created_date, modified_date) " +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), NOW()); ";
   var myValues = [req.body.product_name, req.body.product_trademark,
-      req.body.product_price, req.body.product_type, req.body.product_stock, req.body.user_id];
+      req.body.product_price, req.body.product_type, req.body.product_stock, req.body.user_id, req.body.product_image];
 
   connection.query(myQuery, myValues, function(error, results, fields){
     if (error) throw error;
@@ -301,6 +304,18 @@ app.post('/login', function(req, res){
     connection.end();
   });
 });
+
+app.post('/figures', function(req, res){
+    var fileName = `${new Date().getTime()}.jpeg`;
+    var picture_url = `${picturesDirectory}${fileName}`;
+
+    fs.writeFile(`${picture_url}`, req.body.picture, 'base64', function(error){
+        if (error) throw error;
+        res.send({src_img: picture_url})
+    })
+})
+
+app.use('/figures', express.static('figures'));
 
 app.listen(port, function(){
   console.log("Server start in port 9000!")

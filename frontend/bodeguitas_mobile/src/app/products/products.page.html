@@ -1,0 +1,105 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button routerLink="products-create">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Products
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" class="ion-text-center">Products</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item [routerLink]="['/products/aseo-y-limpieza']">
+      <ion-avatar slot="start">
+        <img src="https://www.kindpng.com/picc/m/275-2757592_limpieza-aseo-png-transparent-png.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>Aseo y limpieza</h2>
+        <h3>Productos de aseo y limpieza</h3>
+        <p>Para uso personal o para la limpieza del hogar</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item [routerLink]="['/products/bebidas']">
+      <ion-avatar slot="start">
+        <img src="https://gestoriapastor.files.wordpress.com/2021/01/the-refrescos.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Bebidas</h2>
+        <h3>Bebidas</h3>
+        <p>Rehidratantes, gaseosas, agua y bebidas de todo tipo</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item [routerLink]="['/products/carnes-y-embutidos']">
+      <ion-avatar slot="start">
+        <img src="https://elportaldelchacinado.com/media/Embutidos-crudos-cocidos-y-sus-caracterC3ADsticas-el-Portal-del-Chacinado_penlpf.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Carnes y embutidos</h2>
+        <h3>Carnes y embutidos</h3>
+        <p>Pescado, res, pollo y derivados</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item [routerLink]="['/products/dulces-y-snacks']">
+      <ion-avatar slot="start">
+        <img src="https://s03.s3c.es/imag/_v0/770x420/2/c/1/Una-gran-variedad-de-snaks-iStock.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Dulces y Snacks</h2>
+        <h3>Todo tipo de golosinas y snacks</h3>
+        <p>Caramelos, piqueos, chocolate y demás </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item [routerLink]="['/products/frutas-y-verduras']">
+      <ion-avatar slot="start">
+        <img src="https://www.hola.com/imagenes/estar-bien/20180629125821/el-significado-de-los-colores-de-las-frutas-cs/0-577-509/frutascolores-t.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Frutas y verduras</h2>
+        <h3>Frutas y verduras</h3>
+        <p>Frutas y verduras de estación</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item [routerLink]="['/products/utiles-escolares']">
+      <ion-avatar slot="start">
+        <img src="https://gestion.pe/resizer/gUE4pOrqeSVwoB58LY28lE-1ye0=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/E5BB6JOU2ZGCXLU4TTRXTP7GWI.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Útiles escolares</h2>
+        <h3>Todo tipo de útiles que puedas necesitar par la escuela</h3>
+        <p>Cuadernos, lapiceros y todo lo que tu lista de utiles te solicite</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item [routerLink]="['/products/viveres']">
+      <ion-avatar slot="start">
+        <img src="https://angelicasmarket.com/wp-content/uploads/2020/09/COMBO-VIVERES-1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Víveres</h2>
+        <h3>Víveres de todo tipo</h3>
+        <p>Abarrotes, leche, fideos, arroz y demás</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

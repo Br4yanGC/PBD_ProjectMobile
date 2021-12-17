@@ -1,0 +1,7 @@
+{
+  "name": "bodeguitas_mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
